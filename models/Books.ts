@@ -1,8 +1,9 @@
-import Sequelize from 'sequelize';
-import sequelize from './index.js';
-import Author from './Authors.js';
+// import Sequelize from 'sequelize';
+var sequel = require('sequelize')
+import sequelize from '../Configuration/index';
+import Author from './Authors';
 
-const { DataTypes } = Sequelize;
+const { DataTypes } = sequel;
 
 const Book = sequelize.define('Book', {
     id: {
@@ -31,6 +32,10 @@ const Book = sequelize.define('Book', {
     publication_year: {
         type: DataTypes.INTEGER,
     }
+},{
+    timestamps: false,
 })
+
+
 
 export default Book;

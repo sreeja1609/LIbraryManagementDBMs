@@ -1,11 +1,12 @@
-import Sequelize from 'sequelize';
-import sequelize from './index.js';
-import Book from './Books.js';
-import Member from './Members.js';
+// import Sequelize from 'sequelize';
+var sequel = require('sequelize')
+import sequelize from '../Configuration/index';
+import Book from './Books';
+import Member from './Members';
 
-const { DataTypes } = Sequelize;
+const { DataTypes } = sequel;
 
-const Loan = sequelize.define('Loan', {
+const Reservation = sequelize.define('Reservation', {
     id: {
         type: DataTypes.INTEGER, 
         autoIncrement: true,  
@@ -25,12 +26,12 @@ const Loan = sequelize.define('Loan', {
             key: 'id'         
         },
     },
-    loan_date: {
+    reservation_date: {
         type: DataTypes.DATE,
         allowNull: false,
     },
-    due_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-    },
+},{
+    timestamps: false,
 })
+
+export default Reservation;

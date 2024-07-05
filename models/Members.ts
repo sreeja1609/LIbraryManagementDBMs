@@ -1,7 +1,8 @@
-import Sequelize from 'sequelize';
-import sequelize from './index.js';
+// import Sequelize from 'sequelize';
+var sequel = require('sequelize')
+import sequelize from '../Configuration/index';
 
-const { DataTypes } = Sequelize;
+const { DataTypes } = sequel;
 
 const Member = sequelize.define('Member', {
     id: {
@@ -23,6 +24,8 @@ const Member = sequelize.define('Member', {
         type: DataTypes.STRING(255),
         unique: true,
     }
+},{
+    timestamps: false,
 })
 
 export default Member;

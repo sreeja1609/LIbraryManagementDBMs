@@ -1,7 +1,8 @@
-import Sequelize from 'sequelize';
-import sequelize from './index.js';
+// import Sequelize from 'sequelize';
+var sequel = require('sequelize')
+import sequelize from '../Configuration/index';
 
-const { DataTypes } = Sequelize;
+const { DataTypes } = sequel;
 
 const Author = sequelize.define('Author', {
     id: {
@@ -19,6 +20,8 @@ const Author = sequelize.define('Author', {
     nationality: {
         type: DataTypes.STRING(100),
     }
+},{
+    timestamps: false,
 })
 
 export default Author;
