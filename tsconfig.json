@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "allowSyntheticDefaultImports": true,
     "module": "commonjs", // Use CommonJS modules
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
   },
   "include": ["models/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

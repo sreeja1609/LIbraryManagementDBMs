@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var router = express.Router();
+var express_1 = require("express");
+var authorsRouter = express_1.default.Router();
 var Authors_1 = require("../models/Authors");
 // Get all authors
-router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+authorsRouter.get('/allAuthors', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var authors, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -62,7 +62,7 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); });
 // Get one author
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+authorsRouter.get('/author/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var author, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -85,7 +85,7 @@ router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Create a new author
-router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+authorsRouter.post('/authorCreation/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var author, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -105,7 +105,7 @@ router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 // Update an author
-router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+authorsRouter.put('/author/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var updated, updatedAuthor, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -133,7 +133,7 @@ router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Delete an author
-router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+authorsRouter.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var deleted, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -157,4 +157,4 @@ router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); });
-exports.default = router;
+exports.default = authorsRouter;

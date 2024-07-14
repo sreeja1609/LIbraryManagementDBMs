@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var router = express.Router();
+var express_1 = require("express");
+var booksRouter = express_1.default.Router();
 var Books_1 = require("../models/Books");
 // Get all books
-router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+booksRouter.get('/allBooks', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var books, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -62,7 +62,7 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); });
 // Get one book
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+booksRouter.get('/book/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var book, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -85,7 +85,7 @@ router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Create a new book
-router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+booksRouter.post('/bookCreation', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var book, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -105,7 +105,7 @@ router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 // Update a book
-router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+booksRouter.put('/book/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var updated, updatedBook, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -133,7 +133,7 @@ router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Delete a book
-router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+booksRouter.delete('/book/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var deleted, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -157,4 +157,4 @@ router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); });
-exports.default = router;
+exports.default = booksRouter;

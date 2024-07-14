@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var router = express.Router();
+var express_1 = require("express");
+var membersRouter = express_1.default.Router();
 var Members_1 = require("../models/Members");
 // Get all members
-router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+membersRouter.get('/allMembers', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var members, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -62,7 +62,7 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); });
 // Get one member
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+membersRouter.get('/member/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var member, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -85,7 +85,7 @@ router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Create a new member
-router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+membersRouter.post('/memberCreation', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var member, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -105,7 +105,7 @@ router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 // Update a member
-router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+membersRouter.put('/member/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var updated, updatedMember, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -133,7 +133,7 @@ router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Delete a member
-router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+membersRouter.delete('/member/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var deleted, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -157,4 +157,4 @@ router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); });
-exports.default = router;
+exports.default = membersRouter;

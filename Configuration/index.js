@@ -37,9 +37,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var sequelize_1 = require("sequelize");
+var express_1 = require("express");
+var body_parser_1 = require("body-parser");
+var associations_1 = require("../Associations/associations");
+var author_routes_1 = require("../routes/author.routes");
+var books_routes_1 = require("../routes/books.routes");
+var loans_routes_1 = require("../routes/loans.routes");
+var members_routes_1 = require("../routes/members.routes");
+var reservations_routes_1 = require("../routes/reservations.routes");
+var app = (0, express_1.default)();
 var sequelize = new sequelize_1.Sequelize('sequel', 'sreeja16', 'sreeja', {
     dialect: 'postgres'
 });
+app.use(body_parser_1.default.json());
+(0, associations_1.default)();
+app.use('/api/authors', author_routes_1.default);
+app.use('/api/books', books_routes_1.default);
+app.use('/api/members', members_routes_1.default);
+app.use('/api/loans', loans_routes_1.default);
+app.use('/api/reservations', reservations_routes_1.default);
 var connectToDatabase = function () { return __awaiter(void 0, void 0, void 0, function () {
     var err_1;
     return __generator(this, function (_a) {
@@ -93,5 +109,8 @@ var initializeDatabase = function () { return __awaiter(void 0, void 0, void 0, 
 }); };
 initializeDatabase().catch(function (err) {
     console.error("Error initializing the database", err);
+});
+app.listen(3000, function () {
+    return console.log('Server is runnin in the port 3000');
 });
 exports.default = sequelize;

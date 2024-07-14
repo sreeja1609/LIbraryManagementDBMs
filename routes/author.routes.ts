@@ -1,43 +1,43 @@
-const express=require('express');
-const router = express.Router();
+import express from 'express';
+const authorsRouter = express.Router();
 import Author from '../models/Authors';
 
 // Get all authors
-router.get('/', async (req, res) => {
+authorsRouter.get('/allAuthors', async (req, res) => {
     try {
         const authors = await Author.findAll();
         if (authors.length === 0) return res.status(404).json({ message: "No Authors Found" });
         res.json({Authors: authors});
-    } catch (err) {
+    } catch (err: any) {
         res.status(500).json({message: err.message});
     }
 });
 
 // Get one author
-router.get('/:id', async (req, res) => {
+authorsRouter.get('/author/:id', async (req, res) => {
     try {
         const author = await Author.findByPk(req.params.id);
         if (author === null) {
             return res.status(404).json({ message: "Author Not Found" });
         }
         res.json(author);
-    } catch (err) {
+    } catch (err: any) {
         res.status(500).json({message: err.message});
     }
 });
 
 // Create a new author
-router.post('/', async (req, res) => {
+authorsRouter.post('/authorCreation/', async (req, res) => {
     try {
         const author = await Author.create(req.body);
         res.json(author);
-    } catch (err) {
+    } catch (err: any) {
         res.status(400).json({message: err.message});
     }
 });
 
 // Update an author
-router.put('/:id', async (req, res) => {
+authorsRouter.put('/author/:id', async (req, res) => {
     try {
         const [updated] = await Author.update(req.body, {where: {id: req.params.id}});
         if (updated) {
@@ -46,13 +46,13 @@ router.put('/:id', async (req, res) => {
         } else {
             res.status(404).json({ message: "Author Not Found" });
         }
-    } catch (err) {
+    } catch (err: any) {
         res.status(400).json({message: err.message});
     }
 });
 
 // Delete an author
-router.delete('/:id', async (req, res) => {
+authorsRouter.delete('/:id', async (req, res) => {
     try {
         const deleted = await Author.destroy({where: {id: req.params.id}});
         if (deleted) {
@@ -60,9 +60,9 @@ router.delete('/:id', async (req, res) => {
         } else {
             res.status(404).json({ message: "Author Not Found" });
         }
-    } catch (err) {
+    } catch (err: any) {
         res.status(500).json({message: err.message});
     }
 });
 
-export default router;
+export default authorsRouter;

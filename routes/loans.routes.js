@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var router = express.Router();
+var express_1 = require("express");
+var loansRouter = express_1.default.Router();
 var Loans_1 = require("../models/Loans");
 // Get all loans
-router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+loansRouter.get('/allLoans', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var loans, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -62,7 +62,7 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); });
 // Get one loan
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+loansRouter.get('/loan/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var loan, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -85,7 +85,7 @@ router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Create a new loan
-router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+loansRouter.post('/loanCreation', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var loan, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -105,7 +105,7 @@ router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 // Update a loan
-router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+loansRouter.put('/loan/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var updated, updatedLoan, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -133,7 +133,7 @@ router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Delete a loan
-router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+loansRouter.delete('/loan/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var deleted, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -157,4 +157,4 @@ router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); });
-exports.default = router;
+exports.default = loansRouter;

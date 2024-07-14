@@ -5,7 +5,7 @@ import Member from "../models/Members";
 import Reservation from "../models/Reservations";
 
 
-const syncAssociations = async() =>{
+const syncAssociations = async() => {
 
     // Books and Authors
     Author.hasMany(Book,{foreignKey:'authorId'});
@@ -29,4 +29,4 @@ const syncAssociations = async() =>{
     
 }
 
-export {syncAssociations}
+export default syncAssociations;

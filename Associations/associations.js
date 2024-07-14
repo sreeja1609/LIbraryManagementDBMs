@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.syncAssociations = void 0;
 var Authors_1 = require("../models/Authors");
 var Books_1 = require("../models/Books");
 var Loans_1 = require("../models/Loans");
@@ -62,4 +61,4 @@ var syncAssociations = function () { return __awaiter(void 0, void 0, void 0, fu
         return [2 /*return*/];
     });
 }); };
-exports.syncAssociations = syncAssociations;
+exports.default = syncAssociations;

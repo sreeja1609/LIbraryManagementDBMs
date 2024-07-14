@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var router = express.Router();
+var express_1 = require("express");
+var reservationsRouter = express_1.default.Router();
 var Reservations_1 = require("../models/Reservations");
 // Get all reservations
-router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+reservationsRouter.get('/allReservations', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var reservations, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -62,7 +62,7 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); });
 // Get one reservation
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+reservationsRouter.get('/reservation/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var reservation, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -85,7 +85,7 @@ router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Create a new reservation
-router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+reservationsRouter.post('/reservationCreation', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var reservation, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -105,7 +105,7 @@ router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 // Update a reservation
-router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+reservationsRouter.put('/reservation/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var updated, updatedReservation, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -133,7 +133,7 @@ router.put('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); });
 // Delete a reservation
-router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+reservationsRouter.delete('/reservation/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var deleted, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -157,4 +157,4 @@ router.delete('/:id', function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); });
-exports.default = router;
+exports.default = reservationsRouter;
